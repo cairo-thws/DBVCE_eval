@@ -1,14 +1,17 @@
 #!/bin/bash
 
-# Working settings:
-#    --classifier_class AlexNetClassifier\
-#    --classifier_class AlexNetRandomInitClassifier\
-#    --classifier_class MadryClassifier\
-#    -- UnetEncoderClassifier
-#    -- ConvNeXtLClassifier
-# SIMCLRClassifier
-# SwinTFLClassifier
-# YOU CAN SET --classifier_path  to overwrite default classifier path
+# classifier_class AlexNetClassifier
+#                  AlexNetRandomInitClassifier
+#                  MadryClassifier
+#                  UnetEncoderClassifier
+#                  ConvNeXtLClassifier
+#                  SIMCLRClassifier
+#                  SwinTFLClassifier
+# You can  --classifier_path  to overwrite default classifier path
+#
+# cone_projection  False / True
+# xzero_prediction False / True
+
 python -m scripts.classifier_sample \
     --data_path /data/imagenet/\
     --classifier_class ConvNeXtLClassifier\

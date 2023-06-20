@@ -1,0 +1,45 @@
+command:
+  - ${env}
+  - python
+  - -m
+  - scripts.classifier_sample
+  - ${args}
+
+program: scripts/classifier_sample.py
+method:  grid
+project: DBVCE_eval
+
+parameters:
+  ####################
+  # DEFAULT
+  seed: 
+    value: 1
+  batch_size:
+    value: 50
+  num_samples:
+    value: 50
+  data_path:
+    value: /data/imagenet/
+  model_path:
+    value: models/256x256_diffusion_uncond.pt
+  use_fp16: 
+    value: True
+  lp_custom:
+    value: 1.0
+  lp_regularization_scale:
+    value: 0.15
+  classifier_scale:
+    value: 0.1
+  skip_timesteps:
+    value: 100
+  init_image:
+    value: True
+
+  ####################
+  # SWEEP
+  classifier_class:
+    values: [ "UnetEncoderClassifier","MadryClassifier", "ConvNeXtLClassifier", "SwinTFLClassifier", "SIMCLRClassifier", "AlexNetClassifier", "AlexNetRandomInitClassifier"]
+  cone_projection:
+    values: [True, False]
+  xzero_prediction:
+    values: [True, False]
