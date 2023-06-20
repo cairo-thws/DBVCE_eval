@@ -36,4 +36,3 @@ The sampling is done in these steps:
 1. For every image-target pair, sample the results guided by the classifier and calculate metrics.
 2. Calculate oracle scores.
 3. Deploy to wandb.
-4. 
