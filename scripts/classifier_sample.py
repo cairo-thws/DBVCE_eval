@@ -196,8 +196,6 @@ def main():
 
         with th.no_grad():
             if init_image_data is not None:
-                # lp regularization
-                # TODO: when not using xzero_prediction, this is correct but makes no sense for the x_t version (quote: magda)
                 diff = pred_xstart - init_image_data
                 lp_dist = (args.lp_custom * diff.abs() ** (args.lp_custom - 1)) * diff.sign()
                 lp_regularization_normalized = l2_normalize_gradient(lp_dist)
